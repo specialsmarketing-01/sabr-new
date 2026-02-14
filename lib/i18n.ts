@@ -15,7 +15,6 @@ export function getLocalizedPath(pathname: string, toLang: Lang): string {
     if (isEn) return pathname;
     if (withoutLang === '/' || withoutLang === '/de') return '/en';
     if (withoutLang === '/about') return '/en/about';
-    if (withoutLang === '/blog') return '/en/blog';
     if (withoutLang === '/kontakt') return '/en/contact';
     if (withoutLang === '/impressum') return '/en/impressum';
     if (withoutLang === '/services') return '/en/services';
@@ -31,7 +30,6 @@ export function getLocalizedPath(pathname: string, toLang: Lang): string {
   if (!isEn) return pathname;
   if (pathname === '/en') return '/de';
   if (pathname === '/en/about') return '/about';
-  if (pathname === '/en/blog') return '/blog';
   if (pathname === '/en/contact') return '/kontakt';
   if (pathname === '/en/impressum') return '/impressum';
   if (pathname === '/en/services') return '/services';

@@ -5,50 +5,23 @@ import { ContactLeadForm } from '@/components/ContactLeadForm';
 
 type Props = { params: Promise<{ slug: string }> };
 
-type Category = {
-  slug: string;
-  title: string;
-  titleEn?: string;
-  intro: string;
-  introEn?: string;
-  content: string;
-  contentEn?: string;
-  ctaTitle: string;
-  ctaTitleEn?: string;
-  ctaText: string;
-  ctaTextEn?: string;
-};
-
 export async function generateStaticParams() {
   return getAllEnSlugs().map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-
-  const category = getCategoryBySlug(slug) as Category | undefined;
-
-  if (!category) {
-    return { title: 'Service' };
-  }
-
+  const category = getCategoryBySlug(slug);
+  if (!category) return { title: 'Service' };
   const title = category.titleEn ?? category.title;
   const description = category.introEn ?? category.intro;
-
-  return {
-    title: `${title} | SABR`,
-    description,
-  };
+  return { title: `${title} | SABR`, description };
 }
 
 export default async function EnServicePage({ params }: Props) {
   const { slug } = await params;
-
-  const category = getCategoryBySlug(slug) as Category | undefined;
-
-  if (!category) {
-    notFound();
-  }
+  const category = getCategoryBySlug(slug);
+  if (!category) notFound();
 
   const titleEn = category.titleEn ?? category.title;
   const introEn = category.introEn ?? category.intro;

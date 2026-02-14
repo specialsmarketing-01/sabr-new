@@ -1,5 +1,38 @@
+# Dependencies
 node_modules
+.pnp
+.pnp.js
+
+# Build & cache
 .next
+out
+.vercel
+*.tsbuildinfo
+
+# Environment (never commit secrets)
+.env
 .env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env*.local
+
+# Debug & logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# OS & IDE
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.idea
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# Large media (optional – comment out if you want to commit them)
 public/*.mov
 public/*.mp4

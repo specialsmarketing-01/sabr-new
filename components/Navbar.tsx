@@ -82,12 +82,6 @@ export function Navbar() {
               {isEn ? 'About' : 'Über uns'}
             </Link>
             <Link
-              href={isEn ? '/en/blog' : '/blog'}
-              className="transition-colors hover:text-yellow-400"
-            >
-              Blog
-            </Link>
-            <Link
               href={isEn ? '/en/contact' : '/kontakt'}
               className="transition-colors hover:text-yellow-400"
             >
