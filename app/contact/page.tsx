@@ -1,8 +1,14 @@
 'use client';
 
+import { useState } from 'react';
+
 export default function ContactPage() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    console.log('Form submitted');
     e.preventDefault();
+    if (isSubmitting) return;
 
     const formData = new FormData(e.currentTarget);
 
@@ -13,6 +19,7 @@ export default function ContactPage() {
       message: formData.get('message'),
     };
 
+    setIsSubmitting(true);
     try {
       const res = await fetch('/api/contact', {
         method: 'POST',
@@ -21,13 +28,14 @@ export default function ContactPage() {
       });
 
       if (res.ok) {
-        alert('Message sent successfully!');
-        e.currentTarget.reset();
-      } else {
-        alert('Something went wrong.');
+        window.location.href = '/danke';
+        return;
       }
+      setIsSubmitting(false);
+      alert('Something went wrong.');
     } catch {
-      alert('Error sending message.');
+      setIsSubmitting(false);
+      alert('Something went wrong.');
     }
   };
 
@@ -126,9 +134,10 @@ export default function ContactPage() {
 
           <button
             type="submit"
-            className="inline-flex items-center justify-center bg-gold-gradient px-6 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-slate-950 shadow-lg shadow-amber-500/30 transition hover:brightness-110"
+            disabled={isSubmitting}
+            className="inline-flex items-center justify-center bg-gold-gradient px-6 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-slate-950 shadow-lg shadow-amber-500/30 transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-70"
           >
-            Send message
+            {isSubmitting ? 'Sending…' : 'Send message'}
           </button>
 
           <p className="text-[11px] text-slate-500">

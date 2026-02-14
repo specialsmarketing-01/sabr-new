@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { INSURANCE_CATEGORIES } from '@/lib/services-data';
 
 type ContactLeadFormProps = {
@@ -29,11 +30,14 @@ export function ContactLeadForm({
   lang = 'de',
   className = '',
 }: ContactLeadFormProps) {
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const isEn = lang === 'en';
   const options = isEn ? CATEGORY_OPTIONS_EN : CATEGORY_OPTIONS_DE;
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    console.log('Form submitted');
     e.preventDefault();
+    if (isSubmitting) return;
 
     const formData = new FormData(e.currentTarget);
 
@@ -44,6 +48,7 @@ export function ContactLeadForm({
       message: formData.get('message'),
     };
 
+    setIsSubmitting(true);
     try {
       const res = await fetch('/api/contact', {
         method: 'POST',
@@ -52,13 +57,14 @@ export function ContactLeadForm({
       });
 
       if (res.ok) {
-        alert(isEn ? 'Message sent successfully!' : 'Nachricht erfolgreich gesendet!');
-        e.currentTarget.reset();
-      } else {
-        alert(isEn ? 'Something went wrong.' : 'Etwas ist schiefgelaufen.');
+        window.location.href = '/danke';
+        return;
       }
+      setIsSubmitting(false);
+      alert(isEn ? 'Something went wrong.' : 'Etwas ist schiefgelaufen.');
     } catch {
-      alert(isEn ? 'Error sending message.' : 'Fehler beim Senden.');
+      setIsSubmitting(false);
+      alert(isEn ? 'Something went wrong.' : 'Etwas ist schiefgelaufen.');
     }
   };
 
@@ -71,6 +77,7 @@ export function ContactLeadForm({
         category: 'Insurance type',
         message: 'Message',
         submit: 'Send message',
+        submitting: 'Sending…',
         required: 'Required',
         privacy: 'Your data will be treated confidentially and in accordance with data protection regulations.',
       }
@@ -82,6 +89,7 @@ export function ContactLeadForm({
         category: 'Versicherungsart',
         message: 'Nachricht',
         submit: 'Nachricht senden',
+        submitting: 'Wird gesendet…',
         required: 'Pflichtfeld',
         privacy: 'Ihre Angaben werden vertraulich behandelt und gemäß den geltenden Datenschutzbestimmungen verarbeitet.',
       };
@@ -179,9 +187,10 @@ export function ContactLeadForm({
 
       <button
         type="submit"
-        className="inline-flex items-center justify-center bg-[#043d15] px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.18em] text-white transition hover:bg-[#05501a]"
+        disabled={isSubmitting}
+        className="inline-flex items-center justify-center bg-[#043d15] px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.18em] text-white transition hover:bg-[#05501a] disabled:cursor-not-allowed disabled:opacity-70"
       >
-        {labels.submit}
+        {isSubmitting ? labels.submitting : labels.submit}
       </button>
       <p className="text-[11px] text-white/50">{labels.privacy}</p>
     </form>
