@@ -160,9 +160,10 @@ SABR advises you on term, sum insured and beneficiaries. We focus on fair premiu
   },
 ] as const;
 
-export type ServiceSlug = (typeof INSURANCE_CATEGORIES)[number]['slug'];
+export type ServiceCategory = (typeof INSURANCE_CATEGORIES)[number];
+export type ServiceSlug = ServiceCategory['slug'];
 
-export function getCategoryBySlug(slug: string) {
+export function getCategoryBySlug(slug: string): ServiceCategory | undefined {
   const byDe = INSURANCE_CATEGORIES.find((c) => c.slug === slug);
   if (byDe) return byDe;
   const deSlug = EN_TO_DE[slug];
