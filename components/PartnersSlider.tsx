@@ -9,7 +9,6 @@ const PARTNERS: { src: string; alt: string }[] = [
   { src: '/partners/ARAG_Logo_neu.svg.png', alt: 'ARAG' },
   { src: '/partners/eh_logo_5-2019.png', alt: 'Erste Group' },
   { src: '/partners/grawe-logo.svg', alt: 'GRAWE' },
-  { src: '/partners/Logo-GRAWE-11.png', alt: 'GRAWE Versicherung' },
   { src: '/partners/lio.jpeg', alt: 'LIO' },
   { src: '/partners/vav_versicherung_ag_logo.jpg', alt: 'VAV Versicherung' },
   { src: '/partners/images.png', alt: 'Partner' },
