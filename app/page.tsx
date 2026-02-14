@@ -71,9 +71,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      <div className="mx-auto max-w-6xl px-4 pt-4 pb-8 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-6xl px-4 pt-2 pb-8 sm:px-6 sm:pt-4 lg:px-8">
         {/* About us teaser with image */}
-      <section className="grid min-h-[320px] gap-6 bg-black/60 py-6 px-6 sm:grid-cols-[minmax(0,1fr)_minmax(0,1.3fr)] sm:items-center sm:min-h-[360px] md:min-h-[400px]">
+      <section className="grid min-h-[320px] gap-6 bg-black/60 py-4 px-6 sm:py-6 sm:grid-cols-[minmax(0,1fr)_minmax(0,1.3fr)] sm:items-center sm:min-h-[360px] md:min-h-[400px]">
         <div className="relative mx-auto h-48 w-full max-w-md sm:h-56 md:h-72">
           <Image
             src="/claim3.png"
