@@ -52,7 +52,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ success: false }, { status: 400 });
     }
 
-    const to = process.env.CONTACT_EMAIL || process.env.SMTP_USER;
+    const to = process.env.CONTACT_EMAIL || "office@sabr.at";
     const from = process.env.SMTP_FROM;
 
     if (!to || !from) {
