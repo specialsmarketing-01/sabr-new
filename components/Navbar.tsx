@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
@@ -20,6 +21,8 @@ const EN_SERVICE_TITLES: Record<string, string> = {
 
 export function Navbar() {
   const pathname = usePathname();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [servicesExpanded, setServicesExpanded] = useState(false);
   const isEn = pathname.startsWith('/en');
   const pathDe = getLocalizedPath(pathname, 'de');
   const pathEn = getLocalizedPath(pathname, 'en');
@@ -28,6 +31,11 @@ export function Navbar() {
     href: isEn ? `/en/services/${c.enSlug}` : `/services/${c.slug}`,
     label: isEn ? EN_SERVICE_TITLES[c.slug] ?? c.title : c.title,
   }));
+
+  useEffect(() => {
+    setMobileMenuOpen(false);
+    setServicesExpanded(false);
+  }, [pathname]);
 
   return (
     <header className="absolute left-0 top-0 z-50 w-full">
@@ -82,6 +90,12 @@ export function Navbar() {
               {isEn ? 'About' : 'Über uns'}
             </Link>
             <Link
+              href={isEn ? '/en/blog' : '/blog'}
+              className="transition-colors hover:text-yellow-400"
+            >
+              Blog
+            </Link>
+            <Link
               href={isEn ? '/en/contact' : '/kontakt'}
               className="transition-colors hover:text-yellow-400"
             >
@@ -89,25 +103,89 @@ export function Navbar() {
             </Link>
           </nav>
 
-          {/* Right: Language switcher */}
-          <div className="absolute right-4 flex items-center gap-1 sm:right-6 lg:right-8">
-            <Link
-              href={pathDe}
-              className={`px-2 py-1 text-xs font-medium transition-colors ${!isEn ? 'text-yellow-400' : 'text-white/70 hover:text-white'}`}
-              aria-current={!isEn ? 'true' : undefined}
+          {/* Right: Hamburger (mobile/tablet) + Language switcher */}
+          <div className="absolute right-4 flex items-center gap-3 sm:right-6 lg:right-8">
+            <button
+              type="button"
+              onClick={() => setMobileMenuOpen((o) => !o)}
+              className="flex h-10 w-10 items-center justify-center rounded-md text-white hover:bg-white/10 sm:hidden"
+              aria-expanded={mobileMenuOpen}
+              aria-label={mobileMenuOpen ? 'Menü schließen' : 'Menü öffnen'}
             >
-              DE
-            </Link>
-            <span className="text-white/40" aria-hidden>|</span>
-            <Link
-              href={pathEn}
-              className={`px-2 py-1 text-xs font-medium transition-colors ${isEn ? 'text-yellow-400' : 'text-white/70 hover:text-white'}`}
-              aria-current={isEn ? 'true' : undefined}
-            >
-              EN
-            </Link>
+              {mobileMenuOpen ? (
+                <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              ) : (
+                <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              )}
+            </button>
+            <div className="flex items-center gap-1">
+              <Link
+                href={pathDe}
+                className={`px-2 py-1 text-xs font-medium transition-colors ${!isEn ? 'text-yellow-400' : 'text-white/70 hover:text-white'}`}
+                aria-current={!isEn ? 'true' : undefined}
+              >
+                DE
+              </Link>
+              <span className="text-white/40" aria-hidden>|</span>
+              <Link
+                href={pathEn}
+                className={`px-2 py-1 text-xs font-medium transition-colors ${isEn ? 'text-yellow-400' : 'text-white/70 hover:text-white'}`}
+                aria-current={isEn ? 'true' : undefined}
+              >
+                EN
+              </Link>
+            </div>
           </div>
         </div>
+      </div>
+
+      {/* Mobile/tablet menu */}
+      <div
+        className={`overflow-hidden transition-[max-height,opacity] duration-300 ease-out sm:hidden ${mobileMenuOpen ? 'max-h-[90vh] opacity-100' : 'max-h-0 opacity-0'}`}
+        aria-hidden={!mobileMenuOpen}
+      >
+        <nav className="border-t border-white/10 bg-black/95 px-4 py-4 shadow-lg backdrop-blur sm:px-6" aria-label="Main">
+          <ul className="flex flex-col gap-1 text-sm font-medium text-white">
+            <li>
+              <Link href={homeHref} className="block rounded-md px-4 py-3 hover:bg-white/10 hover:text-yellow-400" onClick={() => setMobileMenuOpen(false)}>Home</Link>
+            </li>
+            <li>
+              <button
+                type="button"
+                onClick={() => setServicesExpanded((e) => !e)}
+                className="flex w-full items-center justify-between rounded-md px-4 py-3 text-left hover:bg-white/10 hover:text-yellow-400"
+                aria-expanded={servicesExpanded}
+              >
+                {isEn ? 'Services' : 'Leistungen'}
+                <svg className={`h-4 w-4 shrink-0 transition-transform ${servicesExpanded ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              {servicesExpanded && (
+                <ul className="border-l-2 border-white/20 py-2 pl-4">
+                  {serviceLinks.map(({ href, label }) => (
+                    <li key={href}>
+                      <Link href={href} className="block rounded-md px-3 py-2 text-white/90 hover:bg-white/10 hover:text-yellow-400" onClick={() => setMobileMenuOpen(false)}>{label}</Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+            <li>
+              <Link href={isEn ? '/en/about' : '/about'} className="block rounded-md px-4 py-3 hover:bg-white/10 hover:text-yellow-400" onClick={() => setMobileMenuOpen(false)}>{isEn ? 'About' : 'Über uns'}</Link>
+            </li>
+            <li>
+              <Link href={isEn ? '/en/blog' : '/blog'} className="block rounded-md px-4 py-3 hover:bg-white/10 hover:text-yellow-400" onClick={() => setMobileMenuOpen(false)}>Blog</Link>
+            </li>
+            <li>
+              <Link href={isEn ? '/en/contact' : '/kontakt'} className="block rounded-md px-4 py-3 hover:bg-white/10 hover:text-yellow-400" onClick={() => setMobileMenuOpen(false)}>{isEn ? 'Contact' : 'Kontakt'}</Link>
+            </li>
+          </ul>
+        </nav>
       </div>
     </header>
   );
