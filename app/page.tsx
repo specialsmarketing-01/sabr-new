@@ -5,6 +5,7 @@ import { TrustSection } from '@/components/TrustSection';
 import { VisionSection } from '@/components/VisionSection';
 import { PartnersSlider } from '@/components/PartnersSlider';
 import { ContactLeadForm } from '@/components/ContactLeadForm';
+import { ServiceIcon } from '@/components/ServiceIcon';
 
 export const metadata: Metadata = {
   title: 'SABR Versicherungsagentur – Einfach. Ehrlich. Effizient.',
@@ -13,14 +14,14 @@ export const metadata: Metadata = {
 };
 
 const services = [
-  { title: 'Autoversicherung', description: 'Schützt Sie und Ihr Fahrzeug auf jeder Fahrt.', iconSrc: '/icons/auto.png', href: '/services/autoversicherung' },
-  { title: 'Motorradversicherung', description: 'Ihr Schutz für sorgenfreies Fahren auf zwei Rädern.', iconSrc: '/icons/motor.png', href: '/services/motorradversicherung' },
-  { title: 'Eigenheimversicherung', description: 'Sichert Ihr Zuhause gegen Schäden und Verluste ab.', iconSrc: '/icons/Eigenheim.png', href: '/services/eigenheimversicherung' },
-  { title: 'Rechtsschutzversicherung', description: 'Steht Ihnen bei rechtlichen Konflikten zur Seite.', iconSrc: '/icons/Rechts.png', href: '/services/rechtsschutzversicherung' },
-  { title: 'Haushaltsversicherung', description: 'Schützt Ihr Eigentum im Inneren Ihres Hauses.', iconSrc: '/icons/Haushalts.png', href: '/services/haushaltsversicherung' },
-  { title: 'Unfallversicherung', description: 'Finanzielle Sicherheit bei unerwarteten Unfällen.', iconSrc: '/icons/Unfall.png', href: '/services/unfallversicherung' },
-  { title: 'Krankenversicherung', description: 'Unterstützt Sie, wenn die Gesundheit versagt.', iconSrc: '/icons/Krankheits.png', href: '/services/krankenversicherung' },
-  { title: 'Todesfallversicherung', description: 'Sorgt für finanzielle Absicherung Ihrer Angehörigen.', iconSrc: '/icons/Todes.png', href: '/services/todesfallversicherung' },
+  { slug: 'autoversicherung' as const, title: 'Autoversicherung', description: 'Schützt Sie und Ihr Fahrzeug auf jeder Fahrt.', href: '/services/autoversicherung' },
+  { slug: 'motorradversicherung' as const, title: 'Motorradversicherung', description: 'Ihr Schutz für sorgenfreies Fahren auf zwei Rädern.', href: '/services/motorradversicherung' },
+  { slug: 'eigenheimversicherung' as const, title: 'Eigenheimversicherung', description: 'Sichert Ihr Zuhause gegen Schäden und Verluste ab.', href: '/services/eigenheimversicherung' },
+  { slug: 'rechtsschutzversicherung' as const, title: 'Rechtsschutzversicherung', description: 'Steht Ihnen bei rechtlichen Konflikten zur Seite.', href: '/services/rechtsschutzversicherung' },
+  { slug: 'haushaltsversicherung' as const, title: 'Haushaltsversicherung', description: 'Schützt Ihr Eigentum im Inneren Ihres Hauses.', href: '/services/haushaltsversicherung' },
+  { slug: 'unfallversicherung' as const, title: 'Unfallversicherung', description: 'Finanzielle Sicherheit bei unerwarteten Unfällen.', href: '/services/unfallversicherung' },
+  { slug: 'krankenversicherung' as const, title: 'Krankenversicherung', description: 'Unterstützt Sie, wenn die Gesundheit versagt.', href: '/services/krankenversicherung' },
+  { slug: 'todesfallversicherung' as const, title: 'Todesfallversicherung', description: 'Sorgt für finanzielle Absicherung Ihrer Angehörigen.', href: '/services/todesfallversicherung' },
 ];
 
 export default function HomePage() {
@@ -131,13 +132,7 @@ export default function HomePage() {
               className="group flex min-h-[280px] flex-col rounded-md bg-gradient-to-b from-neutral-950 to-neutral-900 p-8 opacity-90 transition-all duration-300 hover:opacity-100 hover:outline hover:outline-1 hover:outline-yellow-400/80 hover:outline-offset-[-1px] hover:shadow-[0_0_32px_-8px_rgba(234,179,8,0.25)] focus-within:opacity-100 focus-within:outline focus-within:outline-1 focus-within:outline-yellow-400/80 focus-within:outline-offset-[-1px] focus-within:shadow-[0_0_32px_-8px_rgba(234,179,8,0.25)]"
             >
               <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-sm bg-black/40">
-                <Image
-                  src={service.iconSrc}
-                  alt={service.title}
-                  width={40}
-                  height={40}
-                  className="h-8 w-8 object-contain opacity-90 grayscale brightness-110 contrast-125"
-                />
+                <ServiceIcon slug={service.slug} />
               </div>
               <h3 className="text-[15px] font-semibold text-white">
                 {service.title}

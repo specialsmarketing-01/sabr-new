@@ -6,22 +6,12 @@ import { VisionSection } from '@/components/VisionSection';
 import { PartnersSlider } from '@/components/PartnersSlider';
 import { ContactLeadForm } from '@/components/ContactLeadForm';
 import { INSURANCE_CATEGORIES } from '@/lib/services-data';
+import { ServiceIcon } from '@/components/ServiceIcon';
 
 export const metadata: Metadata = {
   title: 'SABR – Insurance & Risk Advisory',
   description:
     'SABR offers reliable insurance solutions for private and business clients. Simple, honest, efficient.',
-};
-
-const iconMap: Record<string, string> = {
-  autoversicherung: '/icons/auto.png',
-  motorradversicherung: '/icons/motor.png',
-  eigenheimversicherung: '/icons/Eigenheim.png',
-  rechtsschutzversicherung: '/icons/Rechts.png',
-  haushaltsversicherung: '/icons/Haushalts.png',
-  unfallversicherung: '/icons/Unfall.png',
-  krankenversicherung: '/icons/Krankheits.png',
-  todesfallversicherung: '/icons/Todes.png',
 };
 
 const SERVICE_COPY_EN: Record<
@@ -73,9 +63,9 @@ const SERVICE_COPY_EN: Record<
 const services = INSURANCE_CATEGORIES.map((c) => {
   const copy = SERVICE_COPY_EN[c.slug];
   return {
+    slug: c.slug,
     title: copy?.title ?? c.title,
     description: copy?.description ?? c.intro,
-    iconSrc: iconMap[c.slug] ?? '/icons/auto.png',
     href: `/en/services/${c.enSlug}`,
   };
 });
@@ -177,13 +167,7 @@ export default function EnHomePage() {
                 className="group flex min-h-[280px] flex-col rounded-md bg-gradient-to-b from-neutral-950 to-neutral-900 p-8 opacity-90 transition-all duration-300 hover:opacity-100 hover:outline hover:outline-1 hover:outline-yellow-400/80 hover:outline-offset-[-1px] hover:shadow-[0_0_32px_-8px_rgba(234,179,8,0.25)] focus-within:opacity-100 focus-within:outline focus-within:outline-1 focus-within:outline-yellow-400/80 focus-within:outline-offset-[-1px] focus-within:shadow-[0_0_32px_-8px_rgba(234,179,8,0.25)]"
               >
                 <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-sm bg-black/40">
-                  <Image
-                    src={service.iconSrc}
-                    alt={service.title}
-                    width={40}
-                    height={40}
-                    className="h-8 w-8 object-contain opacity-90 grayscale brightness-110 contrast-125"
-                  />
+                  <ServiceIcon slug={service.slug} />
                 </div>
                 <h3 className="text-[15px] font-semibold text-white">
                   {service.title}
