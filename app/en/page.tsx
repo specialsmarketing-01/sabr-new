@@ -74,7 +74,7 @@ export default function EnHomePage() {
   return (
     <>
       {/* Hero - same as DE: video only background, visible behind navbar and content */}
-      <section className="relative min-h-screen overflow-hidden">
+      <section className="relative min-h-[55vh] overflow-hidden sm:min-h-[70vh] lg:min-h-screen">
         <div className="pointer-events-none absolute inset-0 z-0">
           <video
             src="/bgvideo.mp4"
@@ -90,7 +90,7 @@ export default function EnHomePage() {
           className="pointer-events-none absolute inset-0 z-[10] bg-gradient-to-b from-black/10 via-black/50 to-black"
           aria-hidden
         />
-        <div className="relative z-20 mx-auto max-w-5xl px-4 pb-10 pt-40 text-center sm:px-6 sm:pt-48 lg:px-8">
+        <div className="relative z-20 mx-auto max-w-5xl px-4 pb-6 pt-24 text-center sm:px-6 sm:pb-8 sm:pt-36 lg:px-8 lg:pb-10 lg:pt-48">
           <p className="text-xs font-medium tracking-[0.16em] text-white">
             We protect what matters most to you – with reliable insurance for every area of life.
           </p>
