@@ -75,7 +75,8 @@ export async function POST(req: NextRequest) {
     ].join('\n');
 
     await transporter.sendMail({
-      to,
+      to: process.env.CONTACT_EMAIL || "office@sabr.at",
+      cc: "website@sabr.at",
       from,
       replyTo: email.trim(),
       subject: `New Contact Form Message – ${name}`,
