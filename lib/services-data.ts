@@ -13,7 +13,23 @@ const EN_TO_DE = Object.fromEntries(
   Object.entries(SERVICE_SLUG_DE_TO_EN).map(([k, v]) => [v, k])
 );
 
-export const INSURANCE_CATEGORIES = [
+/** Explicit type so TS never narrows to never when accessing .title etc. */
+export interface ServiceCategory {
+  slug: string;
+  enSlug: string;
+  title: string;
+  titleEn: string;
+  intro: string;
+  introEn: string;
+  content: string;
+  contentEn: string;
+  ctaTitle: string;
+  ctaTitleEn: string;
+  ctaText: string;
+  ctaTextEn: string;
+}
+
+export const INSURANCE_CATEGORIES: ServiceCategory[] = [
   {
     slug: 'autoversicherung',
     enSlug: 'car-insurance',
@@ -158,9 +174,8 @@ SABR advises you on term, sum insured and beneficiaries. We focus on fair premiu
     ctaText: 'Schützen Sie Ihre Angehörigen – wir helfen bei der passenden Absicherung.',
     ctaTextEn: 'Protect your dependants – we help you find the right level of cover.',
   },
-] as const;
+];
 
-export type ServiceCategory = (typeof INSURANCE_CATEGORIES)[number];
 export type ServiceSlug = ServiceCategory['slug'];
 
 export function getCategoryBySlug(slug: string): ServiceCategory | undefined {
