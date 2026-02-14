@@ -16,10 +16,10 @@ export const metadata: Metadata = {
 const iconMap: Record<string, string> = {
   autoversicherung: '/icons/auto.png',
   motorradversicherung: '/icons/motor.png',
-  eigenheimversicherung: '/icons/eigenheim.png',
+  eigenheimversicherung: '/icons/Eigenheim.png',
   rechtsschutzversicherung: '/icons/Rechts.png',
   haushaltsversicherung: '/icons/Haushalts.png',
-  unfallversicherung: '/icons/unfall.png',
+  unfallversicherung: '/icons/Unfall.png',
   krankenversicherung: '/icons/Krankheits.png',
   todesfallversicherung: '/icons/Todes.png',
 };

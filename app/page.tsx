@@ -15,10 +15,10 @@ export const metadata: Metadata = {
 const services = [
   { title: 'Autoversicherung', description: 'Schützt Sie und Ihr Fahrzeug auf jeder Fahrt.', iconSrc: '/icons/auto.png', href: '/services/autoversicherung' },
   { title: 'Motorradversicherung', description: 'Ihr Schutz für sorgenfreies Fahren auf zwei Rädern.', iconSrc: '/icons/motor.png', href: '/services/motorradversicherung' },
-  { title: 'Eigenheimversicherung', description: 'Sichert Ihr Zuhause gegen Schäden und Verluste ab.', iconSrc: '/icons/eigenheim.png', href: '/services/eigenheimversicherung' },
+  { title: 'Eigenheimversicherung', description: 'Sichert Ihr Zuhause gegen Schäden und Verluste ab.', iconSrc: '/icons/Eigenheim.png', href: '/services/eigenheimversicherung' },
   { title: 'Rechtsschutzversicherung', description: 'Steht Ihnen bei rechtlichen Konflikten zur Seite.', iconSrc: '/icons/Rechts.png', href: '/services/rechtsschutzversicherung' },
   { title: 'Haushaltsversicherung', description: 'Schützt Ihr Eigentum im Inneren Ihres Hauses.', iconSrc: '/icons/Haushalts.png', href: '/services/haushaltsversicherung' },
-  { title: 'Unfallversicherung', description: 'Finanzielle Sicherheit bei unerwarteten Unfällen.', iconSrc: '/icons/unfall.png', href: '/services/unfallversicherung' },
+  { title: 'Unfallversicherung', description: 'Finanzielle Sicherheit bei unerwarteten Unfällen.', iconSrc: '/icons/Unfall.png', href: '/services/unfallversicherung' },
   { title: 'Krankenversicherung', description: 'Unterstützt Sie, wenn die Gesundheit versagt.', iconSrc: '/icons/Krankheits.png', href: '/services/krankenversicherung' },
   { title: 'Todesfallversicherung', description: 'Sorgt für finanzielle Absicherung Ihrer Angehörigen.', iconSrc: '/icons/Todes.png', href: '/services/todesfallversicherung' },
 ];
