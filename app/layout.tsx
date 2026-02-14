@@ -11,9 +11,7 @@ const DEFAULT_DESCRIPTION =
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: {
-    default: DEFAULT_TITLE,
-  },
+  title: DEFAULT_TITLE,
   description: DEFAULT_DESCRIPTION,
   keywords: DEFAULT_KEYWORDS,
   icons: {
