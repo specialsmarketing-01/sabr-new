@@ -57,7 +57,7 @@ export function ContactLeadForm({
       });
 
       if (res.ok) {
-        window.location.href = '/danke';
+        window.location.href = isEn ? '/en/thank-you' : '/danke';
         return;
       }
       setIsSubmitting(false);

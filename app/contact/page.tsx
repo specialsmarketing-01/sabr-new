@@ -28,7 +28,7 @@ export default function ContactPage() {
       });
 
       if (res.ok) {
-        window.location.href = '/danke';
+        window.location.href = '/en/thank-you';
         return;
       }
       setIsSubmitting(false);
