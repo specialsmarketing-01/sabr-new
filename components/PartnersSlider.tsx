@@ -12,7 +12,7 @@ const PARTNERS: { src: string; alt: string }[] = [
   { src: '/partners/lio.jpeg', alt: 'LIO' },
   { src: '/partners/vav_versicherung_ag_logo.jpg', alt: 'VAV Versicherung' },
   { src: '/partners/images.png', alt: 'Partner' },
-  { src: '/partners/wustenrot.jpg', alt: 'Wüstenrot' },
+  { src: '/partners/wustenrot2.jpg', alt: 'Wüstenrot' },
 ];
 
 const LOGO_CLASS =
