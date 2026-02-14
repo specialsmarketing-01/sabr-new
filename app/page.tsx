@@ -14,14 +14,14 @@ export const metadata: Metadata = {
 };
 
 const services = [
-  { slug: 'autoversicherung' as const, title: 'Autoversicherung', description: 'Schützt Sie und Ihr Fahrzeug auf jeder Fahrt.', href: '/services/autoversicherung' },
-  { slug: 'motorradversicherung' as const, title: 'Motorradversicherung', description: 'Ihr Schutz für sorgenfreies Fahren auf zwei Rädern.', href: '/services/motorradversicherung' },
-  { slug: 'eigenheimversicherung' as const, title: 'Eigenheimversicherung', description: 'Sichert Ihr Zuhause gegen Schäden und Verluste ab.', href: '/services/eigenheimversicherung' },
-  { slug: 'rechtsschutzversicherung' as const, title: 'Rechtsschutzversicherung', description: 'Steht Ihnen bei rechtlichen Konflikten zur Seite.', href: '/services/rechtsschutzversicherung' },
-  { slug: 'haushaltsversicherung' as const, title: 'Haushaltsversicherung', description: 'Schützt Ihr Eigentum im Inneren Ihres Hauses.', href: '/services/haushaltsversicherung' },
-  { slug: 'unfallversicherung' as const, title: 'Unfallversicherung', description: 'Finanzielle Sicherheit bei unerwarteten Unfällen.', href: '/services/unfallversicherung' },
-  { slug: 'krankenversicherung' as const, title: 'Krankenversicherung', description: 'Unterstützt Sie, wenn die Gesundheit versagt.', href: '/services/krankenversicherung' },
-  { slug: 'todesfallversicherung' as const, title: 'Todesfallversicherung', description: 'Sorgt für finanzielle Absicherung Ihrer Angehörigen.', href: '/services/todesfallversicherung' },
+  { slug: 'autoversicherung' as const, title: 'Auto Versicherung', description: 'Schützt Sie und Ihr Fahrzeug auf jeder Fahrt.', href: '/services/autoversicherung' },
+  { slug: 'motorradversicherung' as const, title: 'Motorrad Versicherung', description: 'Ihr Schutz für sorgenfreies Fahren auf zwei Rädern.', href: '/services/motorradversicherung' },
+  { slug: 'eigenheimversicherung' as const, title: 'Eigenheim Versicherung', description: 'Sichert Ihr Zuhause gegen Schäden und Verluste ab.', href: '/services/eigenheimversicherung' },
+  { slug: 'rechtsschutzversicherung' as const, title: 'Rechtsschutz Versicherung', description: 'Steht Ihnen bei rechtlichen Konflikten zur Seite.', href: '/services/rechtsschutzversicherung' },
+  { slug: 'haushaltsversicherung' as const, title: 'Haushalts Versicherung', description: 'Schützt Ihr Eigentum im Inneren Ihres Hauses.', href: '/services/haushaltsversicherung' },
+  { slug: 'unfallversicherung' as const, title: 'Unfall Versicherung', description: 'Finanzielle Sicherheit bei unerwarteten Unfällen.', href: '/services/unfallversicherung' },
+  { slug: 'krankenversicherung' as const, title: 'Kranken Versicherung', description: 'Unterstützt Sie, wenn die Gesundheit versagt.', href: '/services/krankenversicherung' },
+  { slug: 'todesfallversicherung' as const, title: 'Todesfall Versicherung', description: 'Sorgt für finanzielle Absicherung Ihrer Angehörigen.', href: '/services/todesfallversicherung' },
 ];
 
 export default function HomePage() {

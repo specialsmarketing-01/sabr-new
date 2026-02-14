@@ -33,7 +33,7 @@ export const INSURANCE_CATEGORIES: ServiceCategory[] = [
   {
     slug: 'autoversicherung',
     enSlug: 'car-insurance',
-    title: 'Autoversicherung',
+    title: 'Auto Versicherung',
     titleEn: 'Car Insurance',
     intro: 'Schützen Sie sich und Ihr Fahrzeug auf jeder Fahrt – mit einer Autoversicherung, die zu Ihren Bedürfnissen passt.',
     introEn: 'Protect yourself and your vehicle on every journey – with car insurance that fits your needs.',
@@ -51,7 +51,7 @@ We explain your options in clear language and help you avoid both over- and unde
   {
     slug: 'motorradversicherung',
     enSlug: 'motorcycle-insurance',
-    title: 'Motorradversicherung',
+    title: 'Motorrad Versicherung',
     titleEn: 'Motorcycle Insurance',
     intro: 'Ihr Schutz für sorgenfreies Fahren auf zwei Rädern – maßgeschneidert für Motorrad und Roller.',
     introEn: 'Protection for carefree riding on two wheels – tailored to your motorcycle or scooter.',
@@ -69,7 +69,7 @@ SABR advises you on all major insurers and tariffs. We focus on clear terms and 
   {
     slug: 'eigenheimversicherung',
     enSlug: 'home-insurance',
-    title: 'Eigenheimversicherung',
+    title: 'Eigenheim Versicherung',
     titleEn: 'Home Insurance',
     intro: 'Sichert Ihr Zuhause gegen Schäden und Verluste ab – für Haus und Grund.',
     introEn: 'Protects your home against damage and loss – for both building and land.',
@@ -87,7 +87,7 @@ Together with you, SABR reviews which risks are relevant in your region and whic
   {
     slug: 'rechtsschutzversicherung',
     enSlug: 'legal-protection',
-    title: 'Rechtsschutzversicherung',
+    title: 'Rechtsschutz Versicherung',
     titleEn: 'Legal Protection Insurance',
     intro: 'Steht Ihnen bei rechtlichen Konflikten zur Seite – im Privat- und Berufsleben.',
     introEn: 'Stands by your side in legal disputes – in your private and professional life.',
@@ -105,7 +105,7 @@ SABR helps you find the right tariff – with clear limits of cover and no hidde
   {
     slug: 'haushaltsversicherung',
     enSlug: 'household-insurance',
-    title: 'Haushaltsversicherung',
+    title: 'Haushalts Versicherung',
     titleEn: 'Household Insurance',
     intro: 'Schützt Ihr Eigentum im Inneren Ihres Zuhauses – gegen Diebstahl, Leitungswasser und mehr.',
     introEn: 'Protects the contents of your home – against theft, water damage and more.',
@@ -123,7 +123,7 @@ We advise you on sums insured, waiver of underinsurance and optional modules suc
   {
     slug: 'unfallversicherung',
     enSlug: 'accident-insurance',
-    title: 'Unfallversicherung',
+    title: 'Unfall Versicherung',
     titleEn: 'Accident Insurance',
     intro: 'Finanzielle Sicherheit bei unerwarteten Unfällen – weltweit, rund um die Uhr.',
     introEn: 'Financial security after unexpected accidents – worldwide, around the clock.',
@@ -141,7 +141,7 @@ SABR explains the differences compared with statutory and employer cover and hel
   {
     slug: 'krankenversicherung',
     enSlug: 'health-insurance',
-    title: 'Krankenversicherung',
+    title: 'Kranken Versicherung',
     titleEn: 'Health Insurance',
     intro: 'Unterstützt Sie, wenn die Gesundheit versagt – mit privater Zusatzabsicherung.',
     introEn: 'Supports you when your health is at risk – with private supplementary cover.',
@@ -159,7 +159,7 @@ At SABR we compare offers and explain which modules suit your situation – with
   {
     slug: 'todesfallversicherung',
     enSlug: 'life-insurance',
-    title: 'Todesfallversicherung',
+    title: 'Todesfall Versicherung',
     titleEn: 'Life Insurance',
     intro: 'Sorgt für finanzielle Absicherung Ihrer Angehörigen im Todesfall.',
     introEn: 'Provides financial security for your dependants in the event of death.',
