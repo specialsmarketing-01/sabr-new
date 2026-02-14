@@ -93,7 +93,8 @@ export default function EnHomePage() {
           className="pointer-events-none absolute inset-0 z-[10] bg-gradient-to-b from-black/10 via-black/50 to-black"
           aria-hidden
         />
-        <div className="relative z-20 mx-auto max-w-5xl px-4 pb-6 pt-24 text-center sm:px-6 sm:pb-8 sm:pt-36 lg:px-8 lg:pb-10 lg:pt-48">
+        {/* Hero content pushed down ~40% across breakpoints */}
+        <div className="relative z-20 mx-auto max-w-5xl px-4 pb-6 pt-[38vh] text-center sm:px-6 sm:pb-8 sm:pt-[40vh] lg:px-8 lg:pb-10 lg:pt-[42vh]">
           <p className="text-xs font-medium tracking-[0.16em] text-white">
             We protect what matters most to you – with reliable insurance for every area of life.
           </p>

@@ -49,8 +49,8 @@ export default function HomePage() {
           className="pointer-events-none absolute inset-0 z-[10] bg-gradient-to-b from-black/10 via-black/50 to-black"
           aria-hidden
         />
-        {/* Content: z-20 */}
-        <div className="relative z-20 mx-auto max-w-5xl px-4 pb-6 pt-24 text-center sm:px-6 sm:pb-8 sm:pt-36 lg:px-8 lg:pb-10 lg:pt-48">
+        {/* Content: z-20 – pushed down ~40% across breakpoints */}
+        <div className="relative z-20 mx-auto max-w-5xl px-4 pb-6 pt-[38vh] text-center sm:px-6 sm:pb-8 sm:pt-[40vh] lg:px-8 lg:pb-10 lg:pt-[42vh]">
           <p className="text-xs font-medium tracking-[0.16em] text-white">
             Wir schützen, was Ihnen am wichtigsten ist – mit zuverlässigen Versicherungen
             für jeden Lebensbereich.
