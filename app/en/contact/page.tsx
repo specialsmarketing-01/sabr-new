@@ -1,10 +1,13 @@
 import type { Metadata } from 'next';
 import { ContactLeadForm } from '@/components/ContactLeadForm';
+import { buildPageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: 'Contact | SABR',
   description: 'Contact SABR – by email, phone, or our contact form.',
-};
+  path: '/en/contact',
+  locale: 'en',
+});
 
 export default function EnContactPage() {
   return (

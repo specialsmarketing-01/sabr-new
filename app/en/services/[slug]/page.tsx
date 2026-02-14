@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getCategoryBySlug, getAllEnSlugs } from '@/lib/services-data';
 import { ContactLeadForm } from '@/components/ContactLeadForm';
+import { buildPageMetadata } from '@/lib/seo';
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -15,7 +16,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!category) return { title: 'Service' };
   const title = category.titleEn ?? category.title;
   const description = category.introEn ?? category.intro;
-  return { title: `${title} | SABR`, description };
+  return buildPageMetadata({
+    title: `${title} | SABR`,
+    description,
+    path: `/en/services/${slug}`,
+    locale: 'en',
+  });
 }
 
 export default async function EnServicePage({ params }: Props) {

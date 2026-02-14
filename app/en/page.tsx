@@ -7,12 +7,15 @@ import { PartnersSlider } from '@/components/PartnersSlider';
 import { ContactLeadForm } from '@/components/ContactLeadForm';
 import { INSURANCE_CATEGORIES } from '@/lib/services-data';
 import { ServiceIcon } from '@/components/ServiceIcon';
+import { buildPageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: 'SABR – Insurance & Risk Advisory',
   description:
     'SABR offers reliable insurance solutions for private and business clients. Simple, honest, efficient.',
-};
+  path: '/en',
+  locale: 'en',
+});
 
 const SERVICE_COPY_EN: Record<
   string,

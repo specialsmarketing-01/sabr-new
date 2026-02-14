@@ -1,11 +1,14 @@
 import type { Metadata } from 'next';
 import { ContactLeadForm } from '@/components/ContactLeadForm';
+import { buildPageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'Über uns | SABR',
+export const metadata: Metadata = buildPageMetadata({
+  title: 'Über uns',
   description:
-    'SABR ist Ihr verlässlicher Versicherungspartner seit über 11 Jahren. Mission, Vision und Werte – erfahren Sie, wofür wir stehen.',
-};
+    'Über SABR Versicherungsagentur Wien: Seit über 11 Jahren Ihr Versicherungspartner in Wien. Mission, Vision und Werte – Versicherung Wien mit Vertrauen.',
+  path: '/about',
+  locale: 'de',
+});
 
 export default function AboutPage() {
   return (

@@ -35,7 +35,7 @@ export const INSURANCE_CATEGORIES: ServiceCategory[] = [
     enSlug: 'car-insurance',
     title: 'Auto Versicherung',
     titleEn: 'Car Insurance',
-    intro: 'Schützen Sie sich und Ihr Fahrzeug auf jeder Fahrt – mit einer Autoversicherung, die zu Ihren Bedürfnissen passt.',
+    intro: 'Autoversicherung Wien: Schützen Sie sich und Ihr Fahrzeug auf jeder Fahrt – mit einer Versicherung, die zu Ihren Bedürfnissen passt. SABR Versicherungsagentur berät Sie in 1190 Wien.',
     introEn: 'Protect yourself and your vehicle on every journey – with car insurance that fits your needs.',
     content: `Die Kfz-Versicherung ist in Österreich gesetzlich vorgeschrieben. Sie deckt Schäden ab, die Sie mit Ihrem Fahrzeug verursachen – an anderen Fahrzeugen, Personen oder Sachen. Bei SABR finden Sie die passende Mischung aus Haftpflicht, Kasko und Zusatzbausteinen.
 

@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import Logo from '../logo-sabr.png';
+import { BUSINESS } from '@/lib/structured-data';
 
 const QUICK_LINKS_DE = [
   { label: 'Home', href: '/' },
@@ -68,6 +69,7 @@ export function Footer() {
     : 'Bei SABR bieten wir Versicherungslösungen, die sich an Ihrem Alltag orientieren. Ob Auto, Gesundheit, Leben oder Eigentum – wir sichern Sie rundum ab.';
 
   const addressHeading = isEn ? 'Our address' : 'Unsere Adresse';
+  const hoursHeading = isEn ? 'Opening hours' : 'Öffnungszeiten';
   const quickLinksHeading = isEn ? 'Quick links' : 'Schnellzugriff';
   const followUsHeading = isEn ? 'Follow us' : 'Folgen Sie uns';
 
@@ -92,21 +94,27 @@ export function Footer() {
             </p>
           </div>
 
-          {/* Column 2 – Our Address */}
+          {/* Column 2 – Our Address & Hours */}
           <div>
             <h3 className="mb-3 text-sm font-semibold text-white">{addressHeading}</h3>
             <div className="space-y-1.5 text-xs leading-relaxed text-white/70">
-              <p>T: +4315441638</p>
-              <p>A: Heiligenstädter Straße 7 – 1190 Wien</p>
+              <p>T: {BUSINESS.telephone}</p>
+              <p>A: {BUSINESS.address.streetAddress} – {BUSINESS.address.postalCode} {BUSINESS.address.addressLocality}</p>
               <p>
                 E:{' '}
                 <a
-                  href="mailto:office@sabr.at"
+                  href={`mailto:${BUSINESS.email}`}
                   className="transition-colors hover:text-yellow-400"
                 >
-                  office@sabr.at
+                  {BUSINESS.email}
                 </a>
               </p>
+            </div>
+            <h3 className="mb-3 mt-4 text-sm font-semibold text-white">{hoursHeading}</h3>
+            <div className="space-y-0.5 text-xs leading-relaxed text-white/70">
+              {BUSINESS.openingHoursDisplay.map((line) => (
+                <p key={line}>{line}</p>
+              ))}
             </div>
           </div>
 

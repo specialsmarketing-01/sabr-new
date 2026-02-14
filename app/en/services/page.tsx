@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { INSURANCE_CATEGORIES } from '@/lib/services-data';
+import { buildPageMetadata } from '@/lib/seo';
 
 const EN_TITLES: Record<string, string> = {
   autoversicherung: 'Car Insurance',
@@ -13,11 +14,13 @@ const EN_TITLES: Record<string, string> = {
   todesfallversicherung: 'Life Insurance',
 };
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: 'Services | SABR',
   description:
     'Insurance solutions for car, motorcycle, home, legal protection, household, accident, health and life.',
-};
+  path: '/en/services',
+  locale: 'en',
+});
 
 export default function EnServicesPage() {
   return (

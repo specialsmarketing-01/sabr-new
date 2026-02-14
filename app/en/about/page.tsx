@@ -1,11 +1,14 @@
 import type { Metadata } from 'next';
 import { ContactLeadForm } from '@/components/ContactLeadForm';
+import { buildPageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: 'About us | SABR',
   description:
     'SABR – your reliable insurance partner for more than 11 years. Learn more about our mission, vision, and values.',
-};
+  path: '/en/about',
+  locale: 'en',
+});
 
 export default function EnAboutPage() {
   return (

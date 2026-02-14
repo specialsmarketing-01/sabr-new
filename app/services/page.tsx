@@ -1,12 +1,15 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { INSURANCE_CATEGORIES } from '@/lib/services-data';
+import { buildPageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'Leistungen | SABR',
+export const metadata: Metadata = buildPageMetadata({
+  title: 'Leistungen',
   description:
-    'Versicherungslösungen für Auto, Motorrad, Eigenheim, Rechtsschutz, Haushalt, Unfall, Krankheit und Todesfall.',
-};
+    'Leistungen der SABR Versicherungsagentur Wien: Autoversicherung Wien, Motorrad-, Eigenheim-, Rechtsschutz-, Haushalts-, Unfall-, Kranken- und Todesfallversicherung. Beratung in Wien.',
+  path: '/services',
+  locale: 'de',
+});
 
 export default function ServicesPage() {
   return (

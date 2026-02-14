@@ -1,11 +1,14 @@
 import type { Metadata } from 'next';
 import { ContactLeadForm } from '@/components/ContactLeadForm';
+import { buildPageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'Kontakt | SABR',
+export const metadata: Metadata = buildPageMetadata({
+  title: 'Kontakt',
   description:
-    'Kontaktieren Sie SABR – per E-Mail, Telefon oder über unser Kontaktformular. Wir sind für Sie da.',
-};
+    'Kontakt SABR Versicherungsagentur Wien: Heiligenstädter Straße 7, 1190 Wien. Telefon +43 1 544 1638, E-Mail office@sabr.at. Beratung zu Versicherung Wien.',
+  path: '/kontakt',
+  locale: 'de',
+});
 
 export default function KontaktPage() {
   return (

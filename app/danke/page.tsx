@@ -1,9 +1,16 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { buildPageMetadata } from '@/lib/seo';
 
 export const metadata: Metadata = {
-  title: 'Vielen Dank | SABR',
-  description: 'Ihre Nachricht wurde erfolgreich gesendet. Wir melden uns innerhalb von 24 Stunden.',
+  ...buildPageMetadata({
+    title: 'Vielen Dank | SABR',
+    description:
+      'Ihre Nachricht wurde erfolgreich gesendet. Wir melden uns innerhalb von 24 Stunden.',
+    path: '/danke',
+    locale: 'de',
+  }),
+  robots: { index: false, follow: false },
 };
 
 function CheckIcon({ className }: { className?: string }) {

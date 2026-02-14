@@ -1,10 +1,13 @@
 import type { Metadata } from 'next';
+import { buildPageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: 'Blog | SABR',
   description:
     'Tips, news and useful information about insurance – from the SABR team for you.',
-};
+  path: '/en/blog',
+  locale: 'en',
+});
 
 export default function EnBlogPage() {
   return (

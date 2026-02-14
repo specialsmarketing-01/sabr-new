@@ -1,9 +1,12 @@
 import type { Metadata } from 'next';
+import { buildPageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: 'Imprint | SABR',
   description: 'Legal information and imprint of SABR e.U.',
-};
+  path: '/en/impressum',
+  locale: 'en',
+});
 
 export default function EnImpressumPage() {
   return (

@@ -1,9 +1,12 @@
 import type { Metadata } from 'next';
+import { buildPageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'Impressum | SABR',
-  description: 'Impressum und rechtliche Angaben der SABR e.U.',
-};
+export const metadata: Metadata = buildPageMetadata({
+  title: 'Impressum',
+  description: 'Impressum und rechtliche Angaben der SABR e.U. – Versicherungsagentur Wien, Heiligenstädter Straße 7, 1190 Wien.',
+  path: '/impressum',
+  locale: 'de',
+});
 
 export default function ImpressumPage() {
   return (

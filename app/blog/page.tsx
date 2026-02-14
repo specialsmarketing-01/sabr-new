@@ -1,10 +1,13 @@
 import type { Metadata } from 'next';
+import { buildPageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'Blog | SABR',
+export const metadata: Metadata = buildPageMetadata({
+  title: 'Blog',
   description:
-    'Tipps, Neuigkeiten und Wissenswertes rund um Versicherungen – vom SABR-Team für Sie.',
-};
+    'Blog der SABR Versicherungsagentur Wien: Tipps zu Versicherung Wien, Autoversicherung Wien, Rechtsschutz, Haushalt und mehr. Wissenswertes rund um Versicherungen.',
+  path: '/blog',
+  locale: 'de',
+});
 
 export default function BlogPage() {
   return (

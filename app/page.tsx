@@ -6,12 +6,15 @@ import { VisionSection } from '@/components/VisionSection';
 import { PartnersSlider } from '@/components/PartnersSlider';
 import { ContactLeadForm } from '@/components/ContactLeadForm';
 import { ServiceIcon } from '@/components/ServiceIcon';
+import { buildPageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: 'SABR Versicherungsagentur – Einfach. Ehrlich. Effizient.',
   description:
-    'Wir schützen, was Ihnen am wichtigsten ist – mit zuverlässigen Versicherungen für jeden Lebensbereich.',
-};
+    'Versicherungsagentur Wien: SABR Versicherung bietet Autoversicherung Wien, Kfz-, Motorrad-, Eigenheim-, Rechtsschutz- und weitere Versicherungen. Beratung in 1190 Wien.',
+  path: '/',
+  locale: 'de',
+});
 
 const services = [
   { slug: 'autoversicherung' as const, title: 'Auto Versicherung', description: 'Schützt Sie und Ihr Fahrzeug auf jeder Fahrt.', href: '/services/autoversicherung' },
