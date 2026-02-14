@@ -32,6 +32,36 @@ export function ContactLeadForm({
   const isEn = lang === 'en';
   const options = isEn ? CATEGORY_OPTIONS_EN : CATEGORY_OPTIONS_DE;
 
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.currentTarget);
+
+    const data = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      phone: formData.get('phone'),
+      message: formData.get('message'),
+    };
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      if (res.ok) {
+        alert(isEn ? 'Message sent successfully!' : 'Nachricht erfolgreich gesendet!');
+        e.currentTarget.reset();
+      } else {
+        alert(isEn ? 'Something went wrong.' : 'Etwas ist schiefgelaufen.');
+      }
+    } catch {
+      alert(isEn ? 'Error sending message.' : 'Fehler beim Senden.');
+    }
+  };
+
   const labels = isEn
     ? {
         headline: headline ?? 'Request a callback',
@@ -60,8 +90,7 @@ export function ContactLeadForm({
     <form
       className={`space-y-5 rounded-lg border border-white/10 bg-black/60 px-6 py-6 ${className}`}
       aria-label={labels.headline}
-      action="#"
-      method="post"
+      onSubmit={handleSubmit}
       noValidate
     >
       {headline && (

@@ -1,12 +1,36 @@
-import type { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: 'Contact',
-  description:
-    'Share a brief outline of your insurance or risk question and we will schedule a short introductory conversation.'
-};
+'use client';
 
 export default function ContactPage() {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.currentTarget);
+
+    const data = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      phone: formData.get('phone'),
+      message: formData.get('message'),
+    };
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      if (res.ok) {
+        alert('Message sent successfully!');
+        e.currentTarget.reset();
+      } else {
+        alert('Something went wrong.');
+      }
+    } catch {
+      alert('Error sending message.');
+    }
+  };
+
   return (
     <div className="mx-auto max-w-6xl px-4 pb-24 pt-10 sm:px-6 lg:px-8 lg:pt-16">
       <header className="max-w-2xl space-y-4">
@@ -27,6 +51,7 @@ export default function ContactPage() {
         <form
           className="space-y-6 border border-[#f0cc69]/40 bg-black/60 p-6"
           aria-label="Contact form"
+          onSubmit={handleSubmit}
         >
           <div>
             <label
@@ -59,6 +84,23 @@ export default function ContactPage() {
               autoComplete="email"
               className="mt-2 block w-full border border-slate-700 bg-black/60 px-3 py-2 text-sm text-slate-50 shadow-sm placeholder:text-slate-500 focus:border-[#f0cc69] focus:outline-none focus:ring-1 focus:ring-[#f0cc69]"
               placeholder="you@company.com"
+            />
+          </div>
+
+          <div>
+            <label
+              htmlFor="phone"
+              className="block text-xs font-semibold uppercase tracking-[0.2em] text-slate-300"
+            >
+              Phone
+            </label>
+            <input
+              id="phone"
+              name="phone"
+              type="tel"
+              autoComplete="tel"
+              className="mt-2 block w-full border border-slate-700 bg-black/60 px-3 py-2 text-sm text-slate-50 shadow-sm placeholder:text-slate-500 focus:border-[#f0cc69] focus:outline-none focus:ring-1 focus:ring-[#f0cc69]"
+              placeholder="+43 …"
             />
           </div>
 

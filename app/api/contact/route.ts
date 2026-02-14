@@ -28,9 +28,10 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ success: false }, { status: 400 });
     }
 
-    const { name, email, message } = body as {
+    const { name, email, phone, message } = body as {
       name?: unknown;
       email?: unknown;
+      phone?: unknown;
       message?: unknown;
     };
 
@@ -44,6 +45,8 @@ export async function POST(req: NextRequest) {
     ) {
       return NextResponse.json({ success: false }, { status: 400 });
     }
+
+    const phoneStr = typeof phone === 'string' && phone.trim() ? phone.trim() : null;
 
     if (!isValidEmail(email.trim())) {
       return NextResponse.json({ success: false }, { status: 400 });
@@ -64,7 +67,7 @@ export async function POST(req: NextRequest) {
       '',
       `Name: ${name}`,
       `Email: ${email}`,
-      '',
+      ...(phoneStr ? [`Phone: ${phoneStr}`, ''] : []),
       'Message:',
       message,
       '',
