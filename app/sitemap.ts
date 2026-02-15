@@ -9,7 +9,6 @@ const STATIC_DE = [
   '/impressum',
   '/services',
   '/blog',
-  '/danke',
 ] as const;
 
 const STATIC_EN = [

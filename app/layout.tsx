@@ -2,42 +2,23 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
-import { SITE_URL, DEFAULT_KEYWORDS } from '@/lib/seo';
 import { getOrganizationStructuredData } from '@/lib/structured-data';
 
-const DEFAULT_TITLE = 'SABR Versicherungsagentur – Einfach. Ehrlich. Effizient.';
-const DEFAULT_DESCRIPTION =
-  'Versicherungsagentur Wien: Versicherung für Auto, Motorrad, Eigenheim, Rechtsschutz, Haushalt, Unfall, Kranken- und Todesfall. SABR Versicherung – Ihr Partner in Wien.';
-
 export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
-  title: DEFAULT_TITLE,
-  description: DEFAULT_DESCRIPTION,
-  keywords: DEFAULT_KEYWORDS,
+  metadataBase: new URL('https://sabr.at'),
+  title: {
+    default: 'SABR Versicherungsagentur – Ihr verlässlicher Versicherungspartner',
+    template: '%s | SABR',
+  },
+  description:
+    'SABR Versicherungsagentur in Wien. Persönliche Beratung für Auto-, Haushalts-, Unfall-, Kranken- und Lebensversicherung.',
   icons: {
     icon: '/fav.png',
-  },
-  openGraph: {
-    type: 'website',
-    locale: 'de_AT',
-    siteName: 'SABR Versicherungsagentur',
-    title: DEFAULT_TITLE,
-    description: DEFAULT_DESCRIPTION,
-    url: SITE_URL,
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: DEFAULT_TITLE,
-    description: DEFAULT_DESCRIPTION,
   },
   robots: {
     index: true,
     follow: true,
-    googleBot: { index: true, follow: true },
   },
-  verification: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
-    ? { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION }
-    : undefined,
 };
 
 export default function RootLayout({
